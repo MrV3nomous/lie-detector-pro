@@ -168,6 +168,7 @@ Designed to feel like a high-end interrogation console.
 
 ## 📂 Project Structure
 
+```bash
 client/
 │
 ├── src/
@@ -182,6 +183,7 @@ client/
 ├── index.html
 ├── package.json
 └── vite.config.js
+```
 
 ---
 
