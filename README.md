@@ -18,7 +18,15 @@ Using **typing biometrics, linguistic patterns, and behavioral signals**, it att
 
 ## 🎯 Try It Yourself
 
-# https://lie-detector-pro.vercel.app
+*Click the link below:
+
+### https://lie-detector-pro.vercel.app
+
+Or copy paste the link on your browser:
+
+```bash
+https://lie-detector-pro.vercel.app
+```
 
 «Think you can lie without getting caught?»
 
