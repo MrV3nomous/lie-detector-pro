@@ -1,0 +1,60 @@
+.radialbar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.radialbar-svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  overflow: visible;
+}
+
+.radialbar-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 10;
+}
+
+.radialbar-progress {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1), stroke 1s ease;
+}
+
+.radialbar-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+  padding: 10px;
+}
+
+.radialbar-label span:first-child {
+  margin:0;
+  font-size: clamp(0.4rem, 0.8vw, 0.6rem);
+  font-weight: bold;
+  padding:5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 1;
+}
+
+.radialbar-label span:last-child {
+  margin:0;
+  font-size: clamp(1.3rem, 2.8vw, 2rem);
+  font-weight: 1000;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+

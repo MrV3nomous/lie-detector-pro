@@ -1,0 +1,89 @@
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.carousel-btn {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid #0ff;
+  color: #0ff;
+  font-size: 1.5rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  min-width: 110px;
+  padding: 0.75rem 0.5rem;
+  border-radius: 8px;
+  background: rgba(10, 10, 15, 0.8);
+  border: 1px solid transparent;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-item.active {
+  transform: scale(1.08);
+  border-color: #0ff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  background: rgba(20, 20, 30, 0.9);
+}
+
+.carousel-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0ff, #0088ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem auto;
+  font-weight: bold;
+  color: #000;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.carousel-name {
+  font-size: 0.85rem;
+  color: #fff;
+  margin-top: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carousel-integrity {
+  font-size: 0.75rem;
+  color: #ff0;
+  font-weight: bold;
+}
+

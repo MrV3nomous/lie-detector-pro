@@ -1,0 +1,320 @@
+.create-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  overflow-y: auto;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
+
+  transition: all 0.4s ease;
+}
+
+.create-bg-canvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.create-floating-layers {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.create-floating-text,
+.create-hud-icon {
+  position: absolute;
+  font-size: 12px;
+  color: #0ff;
+  opacity: 0.2;
+  user-select: none;
+  animation: create-floatText 12s infinite linear, create-neonFlicker 3s infinite;
+}
+
+.create-floating-text:nth-child(1) { top: 10%; left: 15%; }
+.create-floating-text:nth-child(2) { top: 30%; left: 70%; }
+.create-floating-text:nth-child(3) { top: 80%; left: 50%; }
+
+.create-hud-icon:nth-child(4) { top: 20%; left: 40%; font-size: 16px; }
+.create-hud-icon:nth-child(5) { top: 60%; left: 25%; font-size: 16px; }
+.create-hud-icon:nth-child(6) { top: 50%; left: 80%; font-size: 16px; }
+
+@keyframes create-floatText {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-10px) translateX(5px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+@keyframes create-neonFlicker {
+  0%, 100% { opacity: 0.1; }
+  10%, 30%, 50%, 70%, 90% { opacity: 0.3; }
+}
+
+.create-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  max-width: 600px;
+
+  margin: auto;
+  animation: createFadeIn 0.6s ease;
+}
+
+@keyframes createFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.create-hud-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #0ff;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 5px #0ff, 0 0 15px #0ff, 0 0 30px #ff00ff;
+  animation: create-neonPulse 4s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+@keyframes create-neonPulse {
+  0%, 100% { text-shadow: 0 0 10px #0ff, 0 0 20px #ff00ff; }
+  50% { text-shadow: 0 0 20px #0ff, 0 0 40px #ff00ff; }
+}
+
+.create-question-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.create-question-box {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  min-height: 60px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: rgba(20, 20, 30, 0.9);
+  border: 1px solid #0ff;
+  border-radius: 12px;
+  color: #0ff;
+  font-size: 1rem;
+  resize: vertical;
+  outline: none;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.create-question-box:focus {
+  border-color: #ff00ff;
+  box-shadow: 0 0 10px #0ff, 0 0 15px #ff00ff;
+  transform: scale(1.01);
+}
+
+.create-remove-btn {
+  flex-shrink: 0;
+  position: relative;
+  font-size: 1rem;
+  color: #ff4d4d;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+}
+
+.create-remove-btn:hover {
+  transform: scale(1.3);
+  color: #ff1a1a;
+}
+
+.create-btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.create-btn-group button {
+  flex: 1;
+  min-width: 140px;
+  transition: all 0.25s ease;
+}
+
+.create-add-btn {
+  padding: 0.5rem 1.25rem;
+  background: #111;
+  color: #0ff;
+  border: 1px solid #0ff;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.create-add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #0ff, 0 0 15px #ff00ff;
+}
+
+.create-start-btn {
+  padding: 0.5rem 1.5rem;
+  background: #0ff;
+  color: #000;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.create-start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #0ff, 0 0 25px #ff00ff;
+}
+
+.create-link-wrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  gap: 10px;
+}
+
+.create-link-wrapper p {
+  margin-bottom: 1px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.create-link-wrapper > div {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.create-link-input {
+  flex: 1;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #0ff;
+  border-radius: 12px;
+  background: rgba(20, 20, 30, 0.9);
+  color: #0ff;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.create-copy-btn {
+  margin-top: 5px;
+  padding: 0.5rem 0.75rem;
+  background: #0ff;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  transition: all 0.25s ease;
+}
+
+.create-copy-btn:hover {
+  transform: scale(1.05);
+}
+
+.create-error-message {
+  margin-top: 1rem;
+  max-width: 600px;
+  color: #ff4d4d;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(50, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+.create-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  padding: 0.8rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+
+.create-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.create-toast.success {
+  background: rgba(10, 30, 20, 0.95);
+  color: #00ff9c;
+  border: 1px solid #00ff9c;
+  box-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c;
+}
+
+.create-toast.error {
+  background: rgba(30, 10, 10, 0.95);
+  color: #ff4d4d;
+  border: 1px solid #ff4d4d;
+  box-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff4d4d;
+}
+
+@media (min-width: 768px) {
+  .create-hud-title { font-size: 4rem; }
+  .create-question-box { font-size: 1.125rem; }
+  .create-start-btn { font-size: 1.25rem; }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .create-wrapper {
+    align-items: flex-start;
+  }
+
+  .create-content {
+    transform: scale(0.95);
+  }
+
+  .create-hud-title {
+    font-size: 1.5rem;
+  }
+
+  .create-question-box {
+    min-height: 50px;
+  }
+}

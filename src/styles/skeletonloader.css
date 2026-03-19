@@ -1,0 +1,21 @@
+.skeleton-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.skeleton-card {
+  width: 200px;
+  height: 150px;
+  background: linear-gradient(-90deg, #111 0%, #222 50%, #111 100%);
+  background-size: 400% 400%;
+  border-radius: 12px;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
