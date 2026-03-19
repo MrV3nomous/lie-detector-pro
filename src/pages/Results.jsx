@@ -53,6 +53,7 @@ export default function Results() {
   
   const localUserId = useRef(getUserId()).current;
 
+  // Debounce search
   useEffect(() => {
     const handler = setTimeout(() => {
       setSearchQuery(searchInput);
@@ -64,6 +65,7 @@ export default function Results() {
     intensityRef.current = scoreIntensity;
   }, [scoreIntensity]);
 
+  // Main Data Fetch
   useEffect(() => {
     if (!sessionToken) {
       navigate("/");
@@ -116,7 +118,6 @@ export default function Results() {
           
           const mergedAnswers = safeAnswers.map((ans, idx) => {
              let qText = "Unknown Question";
-             
              if (ans.question_id && questionMap.has(ans.question_id)) {
                 const matchedQ = questionMap.get(ans.question_id);
                 qText = matchedQ.text || matchedQ;
@@ -134,12 +135,7 @@ export default function Results() {
 
              const uniqueUiKey = ans.id || ans.question_id || (typeof crypto !== 'undefined' ? crypto.randomUUID() : Math.random().toString());
 
-             return { 
-               ...ans, 
-               questionText: qText, 
-               analysis: cleanAnalysis,
-               _uiKey: uniqueUiKey 
-             };
+             return { ...ans, questionText: qText, analysis: cleanAnalysis, _uiKey: uniqueUiKey };
           });
           
           const safeUserId = res.user_id || `unknown_user_${index}`;
@@ -158,7 +154,9 @@ export default function Results() {
             ...res, 
             user_id: safeUserId, 
             answers: mergedAnswers, 
-            score: cleanScore 
+            score: cleanScore,
+            ai_status: res.ai_status || 'pending', 
+            ai_profile: res.ai_profile || null
           };
         });
 
@@ -202,6 +200,45 @@ export default function Results() {
     };
   }, [sessionToken, navigate]); 
 
+  // SUPABASE REALTIME LISTENER (The Ghost Update Hook)
+  useEffect(() => {
+    if (!sessionToken) return;
+
+    const channel = supabase
+      .channel('schema-db-changes')
+      .on(
+        'postgres_changes',
+        { event: 'UPDATE', schema: 'public', table: 'responses' },
+        (payload) => {
+          // If the updated row belongs to this session, update our React state live!
+          if (payload.new.session_id === sessionToken) {
+            setResponses((prevResponses) => 
+              prevResponses.map((res) => {
+                if (res.id === payload.new.id) {
+                  return {
+                    ...res,
+                    score: payload.new.score || res.score,
+                    ai_status: payload.new.ai_status,
+                    ai_profile: payload.new.ai_profile,
+                    answers: res.answers.map((ans, idx) => {
+                      const newAnsData = payload.new.answers?.[idx];
+                      return newAnsData ? { ...ans, analysis: newAnsData.analysis || ans.analysis } : ans;
+                    })
+                  };
+                }
+                return res;
+              })
+            );
+          }
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [sessionToken]);
+
   const responder = useMemo(() => {
     if (!responses.length) return null;
     const found = responses.find(r => r.user_id === selection.id);
@@ -209,7 +246,6 @@ export default function Results() {
   }, [responses, selection]);
   
   const totalAnswers = Array.isArray(responder?.answers) ? responder.answers.length : 0;
-  
   const isTampered = responder?.score?.tamperFlag === true || responder?.score?.verdict === "INVALID";
 
   useEffect(() => {
@@ -271,6 +307,7 @@ export default function Results() {
     }));
   }, [responses]);
 
+  // Background Canvas Animation
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -366,6 +403,23 @@ export default function Results() {
                 <p style={{ margin: 0, fontSize: "0.9rem" }}>
                   The subject attempted to spoof or omit analytic data. Their metrics have been invalidated.
                 </p>
+              </div>
+            )}
+
+            
+            {responder && !isTampered && (
+              <div className="ai-profiler-wrapper">
+                {responder.ai_status === 'pending' ? (
+                  <div className="ai-profiler-pending">
+                    <span className="ai-pulse-dot"></span>
+                    <span className="ai-pulse-text">DEEP AI SEMANTIC PROFILING IN PROGRESS...</span>
+                  </div>
+                ) : responder.ai_profile ? (
+                  <div className="ai-profiler-completed">
+                    <span className="ai-terminal-label">AI FORENSIC VERDICT</span>
+                    <p className="ai-terminal-text">"{responder.ai_profile}"</p>
+                  </div>
+                ) : null}
               </div>
             )}
 
@@ -482,6 +536,7 @@ export default function Results() {
                       <p className="results-answer-text">{q.text || "No response provided."}</p>
                       <hr className="results-card-divider" />
                       
+                        
                       <div className="results-micro-radials-row">
                         <div className="micro-stat-item">
                           <div className="micro-radial-wrapper">
