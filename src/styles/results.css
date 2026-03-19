@@ -303,6 +303,37 @@
   margin: 1rem 0;
 }
 
+.results-creator-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.results-edit-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  color: rgba(0, 255, 255, 0.8);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.results-edit-btn:hover {
+  background: rgba(0, 255, 255, 0.1);
+  color: #0ff;
+  border-color: #0ff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
 .results-viral-footer {
   margin-top: 4rem;
   padding-top: 2.5rem;
