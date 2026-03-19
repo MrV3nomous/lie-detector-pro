@@ -35,6 +35,7 @@ export default function Results() {
   const [isFetching, setIsFetching] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [responses, setResponses] = useState([]);
+  const [sessionOwner, setSessionOwner] = useState(null);
   
   const [selection, setSelection] = useState({ id: null, index: 0 });
   const [filter, setFilter] = useState("all");
@@ -87,6 +88,7 @@ export default function Results() {
         if (!isMounted) return;
 
         const isCreator = sessionData.user_id === localUserId;
+        setSessionOwner(sessionData.user_id);
 
         const { data: responsesData, error: responsesError } = await supabase
           .rpc("get_session_results", {
@@ -141,7 +143,7 @@ export default function Results() {
           });
           
           const safeUserId = res.user_id || `unknown_user_${index}`;
-          
+
           const cleanScore = {
             integrityIndex: safeNum(res.score?.integrityIndex, 50),
             cognitiveLoad: safeNum(res.score?.cognitiveLoad, 0),
@@ -269,7 +271,6 @@ export default function Results() {
     }));
   }, [responses]);
 
-  // Canvas Animation
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -368,7 +369,6 @@ export default function Results() {
               </div>
             )}
 
-            {/* THE ORBITAL RADAR SYSTEM */}
             <div className="orbital-system" ref={radialPanelRef}>
               <div className="orbital-center">
                 <RadialBar
@@ -482,7 +482,6 @@ export default function Results() {
                       <p className="results-answer-text">{q.text || "No response provided."}</p>
                       <hr className="results-card-divider" />
                       
-                      {/* MICRO-RADIALS IN CARDS */}
                       <div className="results-micro-radials-row">
                         <div className="micro-stat-item">
                           <div className="micro-radial-wrapper">
@@ -518,7 +517,8 @@ export default function Results() {
                 ))
               )}
             </div>
-            {isCreator && (
+
+             {localUserId === sessionOwner && (
               <div className="results-creator-actions">
                 <button 
                   className="results-edit-btn"
@@ -528,6 +528,7 @@ export default function Results() {
                 </button>
               </div>
             )}
+
             <div className="results-viral-footer">
               <p className="viral-hook">Who's lying to you?</p>
               <button 
@@ -543,4 +544,3 @@ export default function Results() {
     </div>
   );
 }
-
