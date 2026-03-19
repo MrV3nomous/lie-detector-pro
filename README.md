@@ -27,7 +27,7 @@ Think you can lie without getting caught?
 
 
 **Click the link below:**
-##### https://lie-detector-pro.vercel.app
+https://lie-detector-pro.vercel.app
 
 
 Or copy paste the link on your browser:
