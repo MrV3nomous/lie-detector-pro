@@ -18,8 +18,7 @@ Using **typing biometrics, linguistic patterns, and behavioral signals**, it att
 
 ## 🎯 Try It Yourself
 
-Think you can lie without getting caught?
-
+**Think you can lie without getting caught?**
 - Create your own interrogation
 - Share a secure session link
 - Watch the system analyze responses
