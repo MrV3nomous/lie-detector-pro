@@ -518,6 +518,15 @@ export default function Results() {
                 ))
               )}
             </div>
+            <div className="results-viral-footer">
+              <p className="viral-hook">Who's lying to you?</p>
+              <button 
+                className="viral-create-btn"
+                onClick={() => navigate("/")}
+              >
+                Create Your Own Interrogation ⚡
+              </button>
+            </div>
           </>
         )}
       </div>
