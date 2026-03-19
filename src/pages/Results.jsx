@@ -160,7 +160,7 @@ export default function Results() {
           };
         });
 
-        let defaultId = mergedResponses[0]?.user_id;
+        let defaultId = mergedResponses[0]?.id;
         let defaultIndex = 0;
 
         if (isCreator && mergedResponses.length > 1) {
@@ -168,16 +168,16 @@ export default function Results() {
           mergedResponses.forEach((r, idx) => {
             if (r.score.integrityIndex < lowestIntegrity) {
               lowestIntegrity = r.score.integrityIndex;
-              defaultId = r.user_id;
+              defaultId = r.id;
               defaultIndex = idx;
             }
           });
         }
 
-        const activeResponderExists = mergedResponses.find(r => r.user_id === defaultId);
+        const activeResponderExists = mergedResponses.find(r => r.id === defaultId);
         if (!activeResponderExists) {
           defaultIndex = 0;
-          defaultId = mergedResponses[0]?.user_id;
+          defaultId = mergedResponses[0]?.id;
         }
 
         if (isMounted) {
@@ -241,7 +241,7 @@ export default function Results() {
 
   const responder = useMemo(() => {
     if (!responses.length) return null;
-    const found = responses.find(r => r.user_id === selection.id);
+    const found = responses.find(r => r.id === selection.id);
     return found ?? responses[selection.index] ?? responses[0];
   }, [responses, selection]);
   
@@ -295,13 +295,13 @@ export default function Results() {
     : 0;
 
   const safeCarouselIndex = useMemo(() => {
-    const index = responses.findIndex(r => r.user_id === selection.id);
+    const index = responses.findIndex(r => r.id === selection.id);
     return index !== -1 ? index : 0;
   }, [responses, selection.id]);
 
   const carouselItems = useMemo(() => {
     return responses.map((r) => ({
-      id: r.user_id,
+      id: r.id,
       name: r.responder_name,
       integrity: Math.round(r.score.integrityIndex || 0), 
     }));
@@ -381,7 +381,7 @@ export default function Results() {
               selectedIndex={safeCarouselIndex}
               onSelect={(index) => {
                  if (responses[index]) {
-                   setSelection({ id: responses[index].user_id, index });
+                   setSelection({ id: responses[index].id, index });
                  }
               }}
               hideNameBorders
