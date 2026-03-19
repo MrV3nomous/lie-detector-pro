@@ -1,4 +1,0 @@
-Test: computeMetrics basic test - ❌ FAILED computeMetrics is not a function
-Test: analyzeLinguistics test - ❌ FAILED analyzeLinguistics is not a function
-Test: computeScore test - ❌ FAILED computeMetrics is not a function
-Test: useAnalysis.analyze test - ✅ PASSED 
