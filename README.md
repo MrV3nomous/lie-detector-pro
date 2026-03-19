@@ -26,11 +26,11 @@ Think you can lie without getting caught?
 - Reveal the truth through behavioral data
 
 
-**Click the link below:**
-https://lie-detector-pro.vercel.app
+**Click the link to get started:
+https://lie-detector-pro.vercel.app**
 
 
-Or copy paste the link on your browser:
+Or copy paste this link on your browser:
 ```bash
 https://lie-detector-pro.vercel.app
 ```
