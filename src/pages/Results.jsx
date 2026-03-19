@@ -160,6 +160,7 @@ export default function Results() {
           };
         });
 
+        // FIX 1: Use res.id as the primary key for selection
         let defaultId = mergedResponses[0]?.id;
         let defaultIndex = 0;
 
@@ -200,7 +201,7 @@ export default function Results() {
     };
   }, [sessionToken, navigate]); 
 
-  // SUPABASE REALTIME LISTENER (The Ghost Update Hook)
+  // SUPABASE REALTIME LISTENER
   useEffect(() => {
     if (!sessionToken) return;
 
@@ -210,10 +211,10 @@ export default function Results() {
         'postgres_changes',
         { event: 'UPDATE', schema: 'public', table: 'responses' },
         (payload) => {
-          // If the updated row belongs to this session, update our React state live!
           if (payload.new.session_id === sessionToken) {
             setResponses((prevResponses) => 
               prevResponses.map((res) => {
+                // FIX 2: Correct ID comparison for Realtime updates
                 if (res.id === payload.new.id) {
                   return {
                     ...res,
@@ -241,6 +242,7 @@ export default function Results() {
 
   const responder = useMemo(() => {
     if (!responses.length) return null;
+    // FIX 3: Memo selection based on unique record ID
     const found = responses.find(r => r.id === selection.id);
     return found ?? responses[selection.index] ?? responses[0];
   }, [responses, selection]);
@@ -295,12 +297,14 @@ export default function Results() {
     : 0;
 
   const safeCarouselIndex = useMemo(() => {
+    // FIX 4: Index lookup via unique ID
     const index = responses.findIndex(r => r.id === selection.id);
     return index !== -1 ? index : 0;
   }, [responses, selection.id]);
 
   const carouselItems = useMemo(() => {
     return responses.map((r) => ({
+      // FIX 5: Ensure Carousel passes ID back to selection
       id: r.id,
       name: r.responder_name,
       integrity: Math.round(r.score.integrityIndex || 0), 
@@ -381,6 +385,7 @@ export default function Results() {
               selectedIndex={safeCarouselIndex}
               onSelect={(index) => {
                  if (responses[index]) {
+                   // FIX 6: Update selection with the unique record ID
                    setSelection({ id: responses[index].id, index });
                  }
               }}
@@ -536,7 +541,6 @@ export default function Results() {
                       <p className="results-answer-text">{q.text || "No response provided."}</p>
                       <hr className="results-card-divider" />
                       
-                        
                       <div className="results-micro-radials-row">
                         <div className="micro-stat-item">
                           <div className="micro-radial-wrapper">
