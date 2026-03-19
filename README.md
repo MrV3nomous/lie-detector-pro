@@ -18,6 +18,8 @@ Using **typing biometrics, linguistic patterns, and behavioral signals**, it att
 
 ## 🎯 Try It Yourself
 
+# https://lie-detector-pro.vercel.app
+
 «Think you can lie without getting caught?»
 
 - Create your own interrogation
