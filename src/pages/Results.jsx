@@ -518,6 +518,16 @@ export default function Results() {
                 ))
               )}
             </div>
+            {isCreator && (
+              <div className="results-creator-actions">
+                <button 
+                  className="results-edit-btn"
+                  onClick={() => navigate("/create")}
+                >
+                  ⚙️ Edit Your Questions
+                </button>
+              </div>
+            )}
             <div className="results-viral-footer">
               <p className="viral-hook">Who's lying to you?</p>
               <button 
