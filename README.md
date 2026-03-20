@@ -1,287 +1,249 @@
 # 🧠 LIE DETECTOR PRO
 
-**The Zero-Trust Cognitive Biometric Interrogator**
+> **The Zero-Trust Cognitive Biometric Interrogator**
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)  ![React](https://img.shields.io/badge/Frontend-React-20232A?style=for-the-badge&logo=react)  ![Vite](https://img.shields.io/badge/Bundler-Vite-646CFF?style=for-the-badge&logo=vite)  ![TailwindCSS](https://img.shields.io/badge/Styling-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css)  ![JavaScript](https://img.shields.io/badge/Language-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)  ![Supabase](https://img.shields.io/badge/Backend-Supabase-3ECF8E?style=for-the-badge&logo=supabase)  ![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-316192?style=for-the-badge&logo=postgresql)  ![PLpgSQL](https://img.shields.io/badge/Logic-PLpgSQL-336791?style=for-the-badge&logo=postgresql)  ![Vercel](https://img.shields.io/badge/Deployment-Vercel-000000?style=for-the-badge&logo=vercel)
+<p align="center">
+  <img src="./public/social-preview.png" alt="Lie Detector Pro Banner" width="100%" />
+</p>
 
----
+<p align="center">
+  <a href="https://lie-detector-pro.vercel.app">
+    <img src="https://img.shields.io/badge/Live%20Demo-Open%20the%20Experience-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+  <a href="https://github.com/MrV3nomous/lie-detector-pro">
+    <img src="https://img.shields.io/badge/Code-GitHub-181717?style=for-the-badge&logo=github" />
+  </a>
+</p>
 
-## 🚀 Overview
-
-**Lie Detector Pro** is not just a game — it's a forensic-grade interrogation system built for the web.
-
-It analyzes **how you type**, not just what you type.
-
-Using **typing biometrics, linguistic patterns, and behavioral signals**, it attempts to uncover truth in real time — all inside a **zero-trust architecture** where the system assumes the user is trying to cheat.
-
----
-
-## 🎯 Try It Yourself
-
-**Think you can lie without getting caught?**
-- Create your own interrogation
-- Share a secure session link
-- Watch the system analyze responses
-- Reveal the truth through behavioral data
-
-
-**Click the link to get started:
-https://lie-detector-pro.vercel.app**
-
-
-Or copy paste this link on your browser:
-```bash
-https://lie-detector-pro.vercel.app
-```
+<p align="center">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" />  <img src="https://img.shields.io/badge/Frontend-React-20232A?style=for-the-badge&logo=react" />  <img src="https://img.shields.io/badge/Bundler-Vite-646CFF?style=for-the-badge&logo=vite" />  <img src="https://img.shields.io/badge/Styling-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css" />  <img src="https://img.shields.io/badge/Language-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />  <img src="https://img.shields.io/badge/Backend-Supabase-3ECF8E?style=for-the-badge&logo=supabase" />  <img src="https://img.shields.io/badge/Database-PostgreSQL-316192?style=for-the-badge&logo=postgresql" />  <img src="https://img.shields.io/badge/Logic-PLpgSQL-336791?style=for-the-badge&logo=postgresql" />  <img src="https://img.shields.io/badge/AI-Google%20Gemini-4285F4?style=for-the-badge&logo=google-gemini" />  <img src="https://img.shields.io/badge/Deployment-Vercel-000000?style=for-the-badge&logo=vercel" />
+</p>
 
 ---
 
-## 🧠 The Forensic Brain (Backend Engineering)
+## The idea
 
-At the core lies the Titanium Verdict Engine, powered entirely inside the database.
+Most apps ask for an answer.
 
-### ⚙️ Key Concepts
+This one studies the answer.
 
-- **🧮 Autonomous SQL Triggers**
-  All scoring logic runs inside PostgreSQL.
-  The frontend cannot manipulate results.
+It watches the pauses.  
+The rhythm.  
+The hesitation.  
+The language.  
+The story between the lines.
 
-- **🛡️ Zero-Trust Execution**
-  Every incoming response is treated as potentially malicious
-
-- **📊 Behavioral Analysis Engine**
-  
-  - Cognitive Load Detection
-  - Linguistic Risk Analysis
-  - Consistency Tracking
-  - Integrity Index Calculation
-
-- **⚡ Penalty System**
-  
-  - Detects refresh abuse
-  - Applies dynamic penalties
-  - Flags suspicious behavior
+Lie Detector Pro turns a simple conversation into a behavioral signal stream — then fuses **database-level scoring** with **AI analysis** to produce a sharper, more layered verdict.
 
 ---
 
-## 🔬 Detection Systems
+## Why it feels different
 
-**⌨️ Typing Biometrics**
+This is not a form.
 
-- Words Per Minute (WPM)
-- Typing rhythm consistency
-- Hesitation patterns
+It is an experience.
 
-**🧾 Linguistic Analysis**
+- A session is created
+- A secure link is shared
+- A responder answers once
+- The database scores the raw behavioral data
+- Gemini performs a second-pass review
+- The UI merges both into a final result
 
-- Over-persuasion signals ("Honestly", "I swear")
-- Evasive language ("Maybe", "I don’t remember")
-- Pattern-based deception cues
-
-**🧠 Cognitive Signals**
-
-- Delay vs response complexity
-- Behavioral friction indicators
+The result is immediate, cinematic, and unsettling in the best way.
 
 ---
 
-## 🛡️ Security & Privacy
+## The two brains
 
-This app is designed like a vault.
+### 1) Titanium Verdict Engine
+The first brain lives in PostgreSQL.
 
-**🔒 Row Level Security (RLS)**
+It evaluates:
 
-- Users can only access allowed data
-- No direct table exposure
+- cognitive load
+- linguistic risk
+- consistency
+- integrity index
+- refresh behavior
 
-**🚪 Secure Access Control**
+This is the deterministic layer.  
+It is fast.  
+It is strict.  
+It does not trust the browser.
 
-- Creator → sees all responses
-- Subject → sees only their own
+### 2) Gemini AI Analysis Layer
+The second brain lives in a Supabase Edge Function.
 
-**🧬 Zero-Knowledge Design**
+It reads the full transcript and returns:
 
-- No emails
-- No passwords
-- No personal identity stored
+- a deception penalty
+- a confidence score
+- a behavioral profile
+- question-level flags
 
-**🧠 Backend Enforcement**
+This is the interpretive layer.  
+It adds context, contradiction awareness, and a second opinion.
 
-Even if someone tampers with frontend data:
+### 3) Fusion layer
+The final verdict is a merge of both.
 
-«The database recalculates everything from scratch.»
+- SQL gives the baseline
+- AI refines the interpretation
+- the UI presents the combined story
 
----
-
-## 🎨 Cinematic UI/UX
-
-Designed to feel like a high-end interrogation console.
-
-**🌌 Features**
-
-- 🌀 Orbital Radar System
-  
-  - Central verdict dial
-  - Orbiting metric indicators
-
-- 📊 Radial Data Visualizations
-  
-  - Real-time metric breakdowns
-  - Micro-analysis per answer
-
-- 🌐 Dynamic Particle Canvas
-  
-  - Reactive background system
-  - Intensity driven by score
-
-- 🧭 Interactive Filtering
-  
-  - Cognitive Load sorting
-  - Linguistic Risk detection
-  - Smart search system
+That is the product.
 
 ---
 
-## 🛠️ Tech Stack
+## What it detects
 
-**Frontend**
+### Typing behavior
+- typing speed
+- hesitation gaps
+- rhythm changes
+- backspace pressure
 
-- React.js
+### Language behavior
+- over-explanation
+- defensive tone
+- evasive language
+- forced confidence
+
+### Session behavior
+- contradictions across answers
+- unusual consistency shifts
+- suspicious replay patterns
+- refresh-based tamper signals
+
+---
+
+## Heavy-lifting survival
+
+This app did not just run.
+
+It held up under pressure.
+
+It survived:
+
+- prompt injection attempts
+- malformed JSON payloads
+- Unicode and Zalgo chaos
+- long transcript flooding
+- replay attacks
+- race-condition simulations
+- AI vs SQL conflict tests
+- numeric precision edge cases
+- distributed async timing stress
+- repeated chaos-engineering regression runs
+
+The system stayed alive, kept scoring, and kept its shape.
+
+That matters.
+
+---
+
+## What makes it special
+
+- Hybrid SQL + AI inference
+- Zero-trust scoring architecture
+- Single-submission session flow
+- Secure Supabase backend
+- Rich cinematic results UI
+- Behavior-first analysis
+- Built for friends, family, and curiosity
+
+---
+
+## Visual language
+
+The app uses a high-impact interrogation aesthetic:
+
+- neon HUD styling
+- particle canvas motion
+- orbital radial metrics
+- animated result dials
+- answer-level visual breakdowns
+
+It looks like a control room because it is meant to feel like one.
+
+---
+
+## Tech stack
+
+### Frontend
+- React
 - Vite
 - Tailwind CSS
-- Custom Hooks
+- JavaScript
 
-**Core Hooks**
-
-- "useTypingTracker" → keystroke behavior
-- "useTimer" → response timing
-- "useAnalysis" → behavioral scoring
-
-**Backend**
-
+### Backend
 - Supabase
 - PostgreSQL
-- PL/pgSQL Triggers
+- PL/pgSQL triggers
+- Supabase Edge Functions
 
-**Security Layer**
+### AI
+- Google Gemini
 
-- Row Level Security (RLS)
-- Secure RPC access patterns
-- Database-level validation
-
-**Deployment**
-
-- Vercel (CI/CD via GitHub)
+### Deployment
+- Vercel
 
 ---
 
-## 📂 Project Structure
+## Live demo
 
-```bash
-client/
-│
-├── src/
-│   ├── components/
-│   ├── hooks/
-│   ├── pages/
-│   ├── services/
-│   ├── styles/
-│   └── utils/
-│
-├── public/
-├── index.html
-├── package.json
-└── vite.config.js
-```
+**Open the deployed app:**  
+https://lie-detector-pro.vercel.app
 
 ---
 
-## ⚙️ Local Setup
-
-**1. Clone the repo**
+## Setup
 
 ```bash
-git clone https://github.com/your-username/lie-detector-pro.git
+git clone https://github.com/MrV3nomous/lie-detector-pro.git
 cd lie-detector-pro/client
-```
-
-**2. Install dependencies**
-
-```bash
 npm install
-```
-
-**3. Setup environment variables**
-
-Create a ".env" file:
-
-```bash
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_key
-```
-
-**4. Run the app**
-
-```bash
 npm run dev
 ```
 
----
+Create a `.env` file:
 
-## ⚡ Key Highlights
-
-- 🔥 Fully client-driven UX with server-side truth validation
-- 🧠 Database-driven intelligence (not frontend logic)
-- 🛡️ Built with a zero-trust mindset
-- 🎯 Real-time behavioral analytics
-- 🎨 High-end cinematic interface
+```bash
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
 ---
 
-## 🎯 Philosophy
+## The philosophy
 
-«Truth is not just what you say —
-it's how you say it.»
+Truth is not just what is said.
 
-Lie Detector Pro explores the space between intent and expression, using technology to decode the subtle signals of human behavior.
+Truth is also how it is said, when it is said, and what changes when the same person is asked twice.
 
----
-
-## 🚀 Future Scope
-
-- Advanced AI-assisted deception models
-- Voice + speech pattern analysis
-- Multiplayer interrogation sessions
-- Behavioral profile engine
+Lie Detector Pro exists in that space.
 
 ---
 
-## 👨‍💻 Author
+## Future direction
 
-Built with precision, curiosity, and a focus on behavioral intelligence.
-
----
-
-⭐ If you like this project
-
-Give it a ⭐ and try breaking it 😄
-
+- richer AI analysis
+- deeper contradiction mapping
+- more expressive result visualization
+- richer responder profiles
+- voice and speech analysis
 
 ---
 
+## Final note
+
+This project is built to be shared, explored, and tested.
+
+Try it.  
+Break it.  
+See what it says back.
+
+---
 
 **MIT LICENSE ©️ | SOUMIK HALDER 2026**
-
-
----
-
-
-
-
-
-
-
-
-
-
-
