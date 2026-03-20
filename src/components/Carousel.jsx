@@ -13,11 +13,16 @@ export default function Carousel({ items, selectedIndex, onSelect }) {
   }, [selectedIndex, current]);
 
   useEffect(() => {
-    if (itemRefs.current[current]) {
-      itemRefs.current[current].scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center"
+    const track = trackRef.current;
+    const activeItem = itemRefs.current[current];
+
+    if (track && activeItem) {
+      const trackCenter = track.clientWidth / 2;
+      const itemCenter = activeItem.offsetLeft + (activeItem.clientWidth / 2);
+      
+      track.scrollTo({
+        left: itemCenter - trackCenter,
+        behavior: "smooth"
       });
     }
   }, [current]);
