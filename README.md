@@ -1,6 +1,6 @@
 <h1 align="center">🧠 LIE DETECTOR PRO</h1>
 <p align="center">
-<em><strong>The Zero-Trust Cognitive Biometric Interrogator</strong></em>
+<strong>The Zero-Trust Cognitive Biometric Interrogator</strong>
 </p>
 
 <p align="center">
@@ -79,7 +79,7 @@ Gemini performs a semantic review, and the UI merges both into an immediate, cin
 
 **👨🏻‍💻💠 1) Titanium Verdict Engine (PostgreSQL)**
 
-The deterministic layer. It is fast, strict, and built on a zero-trust architecture that never relies on the client browser.
+  The deterministic layer. It is fast, strict, and built on a zero-trust architecture that never relies on the client browser.
 It evaluates:
 - Cognitive load & typing speed
 - Linguistic risk & hesitation gaps
@@ -89,7 +89,7 @@ It evaluates:
   
 **🌐 2) Gemini AI Analysis Layer (Edge Function)**
 
-The interpretive layer. It reads the full transcript payload to detect complex psychological signals, returning:
+  The interpretive layer. It reads the full transcript payload to detect complex psychological signals, returning:
 - A deception base penalty
 - A mathematical confidence score
 - A behavioral profile & question-level flags
@@ -98,9 +98,9 @@ The interpretive layer. It reads the full transcript payload to detect complex p
   
 **🤝 3) The Fusion Layer**
 
-SQL provides the baseline truth.
-AI refines the interpretation.
-The UI presents the combined story.
+  SQL provides the baseline truth.
+  AI refines the interpretation.
+  The UI presents the combined story.
 
 
 
