@@ -21,11 +21,11 @@
 
 ---
 
-## The idea
+## 💡 The idea
 
 Most apps ask for an answer.
 
-This one studies the answer.
+This one studies the answer. 🧑🏻‍🔬
 
 It watches the pauses.  
 The rhythm.  
@@ -37,7 +37,7 @@ Lie Detector Pro turns a simple conversation into a behavioral signal stream —
 
 ---
 
-## Why it feels different
+## 🧐 Why it feels different
 
 This is not a form.
 
@@ -54,9 +54,9 @@ The result is immediate, cinematic, and unsettling in the best way.
 
 ---
 
-## The two brains
+## 👬 The two brains
 
-### 1) Titanium Verdict Engine
+### 👨🏻‍💻💠 1) Titanium Verdict Engine
 The first brain lives in PostgreSQL.
 
 It evaluates:
@@ -72,7 +72,7 @@ It is fast.
 It is strict.  
 It does not trust the browser.
 
-### 2) Gemini AI Analysis Layer
+### 🌐 2) Gemini AI Analysis Layer
 The second brain lives in a Supabase Edge Function.
 
 It reads the full transcript and returns:
@@ -85,7 +85,7 @@ It reads the full transcript and returns:
 This is the interpretive layer.  
 It adds context, contradiction awareness, and a second opinion.
 
-### 3) Fusion layer
+### 🤝 3) Fusion layer
 The final verdict is a merge of both.
 
 - SQL gives the baseline
@@ -96,21 +96,21 @@ That is the product.
 
 ---
 
-## What it detects
+## 🔬 What it detects
 
-### Typing behavior
+### ⌨️ Typing behavior
 - typing speed
 - hesitation gaps
 - rhythm changes
 - backspace pressure
 
-### Language behavior
+### 🉐 Language behavior
 - over-explanation
 - defensive tone
 - evasive language
 - forced confidence
 
-### Session behavior
+### 💻 Session behavior
 - contradictions across answers
 - unusual consistency shifts
 - suspicious replay patterns
@@ -118,7 +118,7 @@ That is the product.
 
 ---
 
-## Heavy-lifting survival
+## 🦾 Heavy-lifting survival
 
 This app did not just run.
 
@@ -143,7 +143,7 @@ That matters.
 
 ---
 
-## What makes it special
+## 🏅 What makes it special
 
 - Hybrid SQL + AI inference
 - Zero-trust scoring architecture
@@ -155,7 +155,7 @@ That matters.
 
 ---
 
-## Visual language
+## ✨ Visual language
 
 The app uses a high-impact interrogation aesthetic:
 
@@ -169,36 +169,36 @@ It looks like a control room because it is meant to feel like one.
 
 ---
 
-## Tech stack
+## 🧑🏻‍🔧 Tech stack
 
-### Frontend
+### 🖥️ Frontend
 - React
 - Vite
 - Tailwind CSS
 - JavaScript
 
-### Backend
+### 🗃️ Backend
 - Supabase
 - PostgreSQL
 - PL/pgSQL triggers
 - Supabase Edge Functions
 
-### AI
+### 🔮 AI
 - Google Gemini
 
-### Deployment
+### 🔗 Deployment
 - Vercel
 
 ---
 
-## Live demo
+## 🖼️ Live demo
 
 **Open the deployed app:**  
 https://lie-detector-pro.vercel.app
 
 ---
 
-## Setup
+## ⚙️ Setup
 
 ```bash
 git clone https://github.com/MrV3nomous/lie-detector-pro.git
@@ -216,7 +216,7 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 ---
 
-## The philosophy
+## 📜 The philosophy
 
 Truth is not just what is said.
 
@@ -226,7 +226,7 @@ Lie Detector Pro exists in that space.
 
 ---
 
-## Future direction
+## 🪜 Future direction
 
 - richer AI analysis
 - deeper contradiction mapping
@@ -236,7 +236,7 @@ Lie Detector Pro exists in that space.
 
 ---
 
-## Final note
+## 📋 Final note
 
 This project is built to be shared, explored, and tested.
 
@@ -246,4 +246,7 @@ See what it says back.
 
 ---
 
-**MIT LICENSE ©️ | SOUMIK HALDER 2026**
+🪪 **MIT LICENSE ©️ | SOUMIK HALDER 2026**
+
+
+
