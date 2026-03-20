@@ -56,7 +56,7 @@ The result is immediate, cinematic, and unsettling in the best way.
 
 ## 👬 The two brains
 
-### 👨🏻‍💻💠 1) Titanium Verdict Engine
+#### 👨🏻‍💻💠 1) Titanium Verdict Engine
 The first brain lives in PostgreSQL.
 
 It evaluates:
@@ -72,7 +72,7 @@ It is fast.
 It is strict.  
 It does not trust the browser.
 
-### 🌐 2) Gemini AI Analysis Layer
+#### 🌐 2) Gemini AI Analysis Layer
 The second brain lives in a Supabase Edge Function.
 
 It reads the full transcript and returns:
@@ -85,7 +85,7 @@ It reads the full transcript and returns:
 This is the interpretive layer.  
 It adds context, contradiction awareness, and a second opinion.
 
-### 🤝 3) Fusion layer
+#### 🤝 3) Fusion layer
 The final verdict is a merge of both.
 
 - SQL gives the baseline
@@ -98,19 +98,19 @@ That is the product.
 
 ## 🔬 What it detects
 
-### ⌨️ Typing behavior
+#### ⌨️ Typing behavior
 - typing speed
 - hesitation gaps
 - rhythm changes
 - backspace pressure
 
-### 🉐 Language behavior
+#### 🉐 Language behavior
 - over-explanation
 - defensive tone
 - evasive language
 - forced confidence
 
-### 💻 Session behavior
+#### 💻 Session behavior
 - contradictions across answers
 - unusual consistency shifts
 - suspicious replay patterns
@@ -171,22 +171,22 @@ It looks like a control room because it is meant to feel like one.
 
 ## 🧑🏻‍🔧 Tech stack
 
-### 🖥️ Frontend
+#### 🖥️ Frontend
 - React
 - Vite
 - Tailwind CSS
 - JavaScript
 
-### 🗃️ Backend
+#### 🗃️ Backend
 - Supabase
 - PostgreSQL
 - PL/pgSQL triggers
 - Supabase Edge Functions
 
-### 🔮 AI
+#### 🔮 AI
 - Google Gemini
 
-### 🔗 Deployment
+#### 🔗 Deployment
 - Vercel
 
 ---
@@ -211,7 +211,7 @@ Create a `.env` file:
 
 ```bash
 VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_SUPABASE_ANON_KEY=your_supabase_publishable_key
 ```
 
 ---
