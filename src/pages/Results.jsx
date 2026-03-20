@@ -53,7 +53,6 @@ export default function Results() {
   
   const localUserId = useRef(getUserId()).current;
 
-  // Debounce search
   useEffect(() => {
     const handler = setTimeout(() => {
       setSearchQuery(searchInput);
@@ -65,7 +64,6 @@ export default function Results() {
     intensityRef.current = scoreIntensity;
   }, [scoreIntensity]);
 
-  // Main Data Fetch
   useEffect(() => {
     if (!sessionToken) {
       navigate("/");
@@ -138,8 +136,6 @@ export default function Results() {
              return { ...ans, questionText: qText, analysis: cleanAnalysis, _uiKey: uniqueUiKey };
           });
           
-          const safeUserId = res.user_id || `unknown_user_${index}`;
-
           const cleanScore = {
             integrityIndex: safeNum(res.score?.integrityIndex, 50),
             cognitiveLoad: safeNum(res.score?.cognitiveLoad, 0),
@@ -152,7 +148,6 @@ export default function Results() {
 
           return { 
             ...res, 
-            user_id: safeUserId, 
             answers: mergedAnswers, 
             score: cleanScore,
             ai_status: res.ai_status || 'pending', 
@@ -160,7 +155,6 @@ export default function Results() {
           };
         });
 
-        // FIX 1: Use res.id as the primary key for selection
         let defaultId = mergedResponses[0]?.id;
         let defaultIndex = 0;
 
@@ -201,7 +195,6 @@ export default function Results() {
     };
   }, [sessionToken, navigate]); 
 
-  // SUPABASE REALTIME LISTENER
   useEffect(() => {
     if (!sessionToken) return;
 
@@ -214,7 +207,6 @@ export default function Results() {
           if (payload.new.session_id === sessionToken) {
             setResponses((prevResponses) => 
               prevResponses.map((res) => {
-                // FIX 2: Correct ID comparison for Realtime updates
                 if (res.id === payload.new.id) {
                   return {
                     ...res,
@@ -242,7 +234,6 @@ export default function Results() {
 
   const responder = useMemo(() => {
     if (!responses.length) return null;
-    // FIX 3: Memo selection based on unique record ID
     const found = responses.find(r => r.id === selection.id);
     return found ?? responses[selection.index] ?? responses[0];
   }, [responses, selection]);
@@ -297,21 +288,18 @@ export default function Results() {
     : 0;
 
   const safeCarouselIndex = useMemo(() => {
-    // FIX 4: Index lookup via unique ID
     const index = responses.findIndex(r => r.id === selection.id);
     return index !== -1 ? index : 0;
   }, [responses, selection.id]);
 
   const carouselItems = useMemo(() => {
     return responses.map((r) => ({
-      // FIX 5: Ensure Carousel passes ID back to selection
       id: r.id,
       name: r.responder_name,
       integrity: Math.round(r.score.integrityIndex || 0), 
     }));
   }, [responses]);
 
-  // Background Canvas Animation
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -385,7 +373,6 @@ export default function Results() {
               selectedIndex={safeCarouselIndex}
               onSelect={(index) => {
                  if (responses[index]) {
-                   // FIX 6: Update selection with the unique record ID
                    setSelection({ id: responses[index].id, index });
                  }
               }}
@@ -411,7 +398,6 @@ export default function Results() {
               </div>
             )}
 
-            
             {responder && !isTampered && (
               <div className="ai-profiler-wrapper">
                 {responder.ai_status === 'pending' ? (
@@ -540,7 +526,6 @@ export default function Results() {
                       <p className="results-question-text"><strong>Q:</strong> {q.questionText}</p>
                       <p className="results-answer-text">{q.text || "No response provided."}</p>
                       <hr className="results-card-divider" />
-                      
                       <div className="results-micro-radials-row">
                         <div className="micro-stat-item">
                           <div className="micro-radial-wrapper">
@@ -548,21 +533,18 @@ export default function Results() {
                           </div>
                           <span className="micro-stat-name" style={{ color: isTampered ? '#ff4444' : '#00ff00' }}>Cog</span>
                         </div>
-                        
-                        <div className="micro-stat-item">
+<div className="micro-stat-item">
                           <div className="micro-radial-wrapper">
                             <RadialBar label="" value={isTampered ? 0 : Math.round(q.analysis?.linguisticRisk || 0)} gradientColors={isTampered ? ["#ff0000", "#ff4444"] : ["#ffff00", "#ff0000"]} />
                           </div>
                           <span className="micro-stat-name" style={{ color: isTampered ? '#ff4444' : '#ffff00' }}>Ling</span>
                         </div>
-                        
                         <div className="micro-stat-item">
                           <div className="micro-radial-wrapper">
                             <RadialBar label="" value={isTampered ? 0 : Math.round(q.analysis?.consistency || 0)} gradientColors={isTampered ? ["#ff0000", "#ff4444"] : ["#00ffff", "#ff00ff"]} />
                           </div>
                           <span className="micro-stat-name" style={{ color: isTampered ? '#ff4444' : '#00ffff' }}>Cons</span>
                         </div>
-                        
                         <div className="micro-stat-item">
                           <div className="micro-radial-wrapper">
                             <RadialBar label="" value={isTampered ? 0 : Math.round(q.analysis?.integrityIndex || 0)} gradientColors={isTampered ? ["#ff0000", "#ff4444"] : ["#0ff", "#ff00ff"]} />
@@ -570,7 +552,6 @@ export default function Results() {
                           <span className="micro-stat-name" style={{ color: isTampered ? '#ff4444' : '#0ff' }}>Integ</span>
                         </div>
                       </div>
-
                     </div>
                   </div>
                 ))
