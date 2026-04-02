@@ -1,0 +1,16 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: "0 0 */3 * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Edge Function
+        run: |
+          curl -X GET "https://<project-id>.functions.supabase.co/keep-alive" \
+          -H "x-cron-secret: ${{ secrets.CRON_SECRET }}"
