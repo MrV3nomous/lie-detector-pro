@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Call Edge Function
         run: |
-          curl -X GET "https://<project-id>.functions.supabase.co/keep-alive" \
+          curl -X GET "https://fosfvcnbrqshmrtucijl.supabase.co/functions/v1/keep-alive" \
           -H "x-cron-secret: ${{ secrets.CRON_SECRET }}"
