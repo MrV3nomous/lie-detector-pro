@@ -1,5 +1,3 @@
-//This is a Placeholder App just for showcasing the algorithm.
-//The actual analysis is handled in the backend to prevent any information leaks or tampering of data by any user.
 export default function useAnalysis() {
   const analyzeTyping = (text = "", metrics = {}, timeInSeconds = 0) => {
     const words = text.split(/\s+/).filter(Boolean);
